@@ -485,6 +485,136 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiMainIngredientMainIngredient
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'main_ingredients';
+  info: {
+    singularName: 'main-ingredient';
+    pluralName: 'main-ingredients';
+    displayName: 'MainIngredient';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Detail: Schema.Attribute.Blocks;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Name: Schema.Attribute.String;
+    recipes: Schema.Attribute.Relation<'manyToMany', 'api::recipe.recipe'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::main-ingredient.main-ingredient'
+    >;
+  };
+}
+
+export interface ApiProductCafeProductCafe extends Struct.CollectionTypeSchema {
+  collectionName: 'product_cafes';
+  info: {
+    singularName: 'product-cafe';
+    pluralName: 'product-cafes';
+    displayName: 'Product Cafe';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    product_cafe_categories: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product-cafe-category.product-cafe-category'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-cafe.product-cafe'
+    >;
+  };
+}
+
+export interface ApiProductCafeCategoryProductCafeCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_cafe_categories';
+  info: {
+    singularName: 'product-cafe-category';
+    pluralName: 'product-cafe-categories';
+    displayName: 'Product Cafe Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Schema.Attribute.String;
+    product_cafes: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product-cafe.product-cafe'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-cafe-category.product-cafe-category'
+    >;
+  };
+}
+
+export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
+  collectionName: 'recipes';
+  info: {
+    singularName: 'recipe';
+    pluralName: 'recipes';
+    displayName: 'Recipe';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Schema.Attribute.String;
+    Thumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    Howtodo: Schema.Attribute.Blocks;
+    OtherIngredient: Schema.Attribute.Blocks;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    main_ingredients: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::main-ingredient.main-ingredient'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::recipe.recipe'>;
+  };
+}
+
 export interface AdminPermission extends Struct.CollectionTypeSchema {
   collectionName: 'admin_permissions';
   info: {
@@ -860,6 +990,10 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::main-ingredient.main-ingredient': ApiMainIngredientMainIngredient;
+      'api::product-cafe.product-cafe': ApiProductCafeProductCafe;
+      'api::product-cafe-category.product-cafe-category': ApiProductCafeCategoryProductCafeCategory;
+      'api::recipe.recipe': ApiRecipeRecipe;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;
