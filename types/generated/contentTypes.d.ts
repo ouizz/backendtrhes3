@@ -485,6 +485,159 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiActivitesPageActivitesPage extends Struct.SingleTypeSchema {
+  collectionName: 'activites_pages';
+  info: {
+    singularName: 'activites-page';
+    pluralName: 'activites-pages';
+    displayName: 'Activites page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    SEOTitle: Schema.Attribute.String;
+    SEODescription: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::activites-page.activites-page'
+    >;
+  };
+}
+
+export interface ApiActivitieActivitie extends Struct.CollectionTypeSchema {
+  collectionName: 'activities';
+  info: {
+    singularName: 'activitie';
+    pluralName: 'activities';
+    displayName: 'Activitie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Detail: Schema.Attribute.Blocks;
+    ShortDetail: Schema.Attribute.Blocks;
+    MoreImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    Highlight: Schema.Attribute.Boolean;
+    Imagehightlight: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    homeorder: Schema.Attribute.Enumeration<['no1', 'no2']>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::activitie.activitie'
+    >;
+  };
+}
+
+export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
+  collectionName: 'contact_uses';
+  info: {
+    singularName: 'contact-us';
+    pluralName: 'contact-uses';
+    displayName: 'Contact Us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    fullname: Schema.Attribute.String;
+    country: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    message: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-us.contact-us'
+    >;
+  };
+}
+
+export interface ApiContactUsPageContactUsPage extends Struct.SingleTypeSchema {
+  collectionName: 'contact_us_pages';
+  info: {
+    singularName: 'contact-us-page';
+    pluralName: 'contact-us-pages';
+    displayName: 'Contact Us page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    SEODescription: Schema.Attribute.String;
+    SEOTitle: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-us-page.contact-us-page'
+    >;
+  };
+}
+
+export interface ApiHomeHome extends Struct.SingleTypeSchema {
+  collectionName: 'homes';
+  info: {
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'Home';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    herobanner: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'>;
+  };
+}
+
 export interface ApiMainIngredientMainIngredient
   extends Struct.CollectionTypeSchema {
   collectionName: 'main_ingredients';
@@ -513,6 +666,66 @@ export interface ApiMainIngredientMainIngredient
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::main-ingredient.main-ingredient'
+    >;
+  };
+}
+
+export interface ApiOurStandardOurStandard extends Struct.SingleTypeSchema {
+  collectionName: 'our_standards';
+  info: {
+    singularName: 'our-standard';
+    pluralName: 'our-standards';
+    displayName: 'Our standard';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Factory: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    SEOTitle: Schema.Attribute.String;
+    SEODescription: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-standard.our-standard'
+    >;
+  };
+}
+
+export interface ApiOurStoryOurStory extends Struct.SingleTypeSchema {
+  collectionName: 'our_stories';
+  info: {
+    singularName: 'our-story';
+    pluralName: 'our-stories';
+    displayName: 'Our Story';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    SEOTitle: Schema.Attribute.String;
+    SEODescription: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-story.our-story'
     >;
   };
 }
@@ -580,6 +793,290 @@ export interface ApiProductCafeCategoryProductCafeCategory
   };
 }
 
+export interface ApiProductOemProductOem extends Struct.CollectionTypeSchema {
+  collectionName: 'product_oems';
+  info: {
+    singularName: 'product-oem';
+    pluralName: 'product-oems';
+    displayName: 'Product OEM';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AttributeProduct: Schema.Attribute.String;
+    FullName: Schema.Attribute.String;
+    TypeProduct: Schema.Attribute.String;
+    Thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ColorFront: Schema.Attribute.Enumeration<
+      ['Green-B7D66C', 'Pink-F8008A', 'Yellow-F6C64D', 'Blue-6AD8FE']
+    >;
+    product_oem_categories: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product-oem-category.product-oem-category'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-oem.product-oem'
+    >;
+  };
+}
+
+export interface ApiProductOemCategoryProductOemCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_oem_categories';
+  info: {
+    singularName: 'product-oem-category';
+    pluralName: 'product-oem-categories';
+    displayName: 'Product OEM Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Schema.Attribute.String;
+    product_oems: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product-oem.product-oem'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-oem-category.product-oem-category'
+    >;
+  };
+}
+
+export interface ApiProductOurbrandProductOurbrand
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_ourbrands';
+  info: {
+    singularName: 'product-ourbrand';
+    pluralName: 'product-ourbrands';
+    displayName: 'Product Ourbrand';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AttributeProduct: Schema.Attribute.String;
+    Fullname: Schema.Attribute.String;
+    TypeProduct: Schema.Attribute.String;
+    Thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Size: Schema.Attribute.String;
+    Detail: Schema.Attribute.Blocks;
+    Popup: Schema.Attribute.Boolean;
+    Title: Schema.Attribute.String;
+    ColorFront: Schema.Attribute.Enumeration<
+      ['Green-B7D66C', 'Pink-F8008A', 'Yellow-F6C64D', 'Blue-6AD8FE']
+    >;
+    product_ourbrand_categories: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product-ourbrand-category.product-ourbrand-category'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-ourbrand.product-ourbrand'
+    >;
+  };
+}
+
+export interface ApiProductOurbrandCategoryProductOurbrandCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_ourbrand_categories';
+  info: {
+    singularName: 'product-ourbrand-category';
+    pluralName: 'product-ourbrand-categories';
+    displayName: 'Product Ourbrand Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Text: Schema.Attribute.String;
+    product_ourbrands: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product-ourbrand.product-ourbrand'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-ourbrand-category.product-ourbrand-category'
+    >;
+  };
+}
+
+export interface ApiProductSpecProductSpec extends Struct.CollectionTypeSchema {
+  collectionName: 'product_specs';
+  info: {
+    singularName: 'product-spec';
+    pluralName: 'product-specs';
+    displayName: 'Product Spec';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Popup: Schema.Attribute.Boolean;
+    Kindfruit: Schema.Attribute.String;
+    product_spec_categories: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product-spec-category.product-spec-category'
+    >;
+    product_spec_tables: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product-spec-table.product-spec-table'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-spec.product-spec'
+    >;
+  };
+}
+
+export interface ApiProductSpecCategoryProductSpecCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_spec_categories';
+  info: {
+    singularName: 'product-spec-category';
+    pluralName: 'product-spec-categories';
+    displayName: 'Product Spec Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Schema.Attribute.String;
+    product_specs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product-spec.product-spec'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-spec-category.product-spec-category'
+    >;
+  };
+}
+
+export interface ApiProductSpecTableProductSpecTable
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_spec_tables';
+  info: {
+    singularName: 'product-spec-table';
+    pluralName: 'product-spec-tables';
+    displayName: 'Product Spec Table';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    UnitRow1: Schema.Attribute.String;
+    UnitRow2: Schema.Attribute.String;
+    UnitRow3: Schema.Attribute.String;
+    PackSizeRow1: Schema.Attribute.String;
+    PackSizeRow2: Schema.Attribute.String;
+    PackSizeRow3: Schema.Attribute.String;
+    NWRow1: Schema.Attribute.String;
+    NWRow2: Schema.Attribute.String;
+    NWRow3: Schema.Attribute.String;
+    rowspec: Schema.Attribute.String;
+    product_specs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product-spec.product-spec'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-spec-table.product-spec-table'
+    >;
+  };
+}
+
+export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
+  collectionName: 'products_pages';
+  info: {
+    singularName: 'products-page';
+    pluralName: 'products-pages';
+    displayName: 'Products page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    SEOTitle: Schema.Attribute.String;
+    SEODescription: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::products-page.products-page'
+    >;
+  };
+}
+
 export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
   collectionName: 'recipes';
   info: {
@@ -612,6 +1109,34 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::recipe.recipe'>;
+  };
+}
+
+export interface ApiRecipesPageRecipesPage extends Struct.SingleTypeSchema {
+  collectionName: 'recipes_pages';
+  info: {
+    singularName: 'recipes-page';
+    pluralName: 'recipes-pages';
+    displayName: 'Recipes page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    SEOTitle: Schema.Attribute.String;
+    SEODescription: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::recipes-page.recipes-page'
+    >;
   };
 }
 
@@ -990,10 +1515,26 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::activites-page.activites-page': ApiActivitesPageActivitesPage;
+      'api::activitie.activitie': ApiActivitieActivitie;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
+      'api::home.home': ApiHomeHome;
       'api::main-ingredient.main-ingredient': ApiMainIngredientMainIngredient;
+      'api::our-standard.our-standard': ApiOurStandardOurStandard;
+      'api::our-story.our-story': ApiOurStoryOurStory;
       'api::product-cafe.product-cafe': ApiProductCafeProductCafe;
       'api::product-cafe-category.product-cafe-category': ApiProductCafeCategoryProductCafeCategory;
+      'api::product-oem.product-oem': ApiProductOemProductOem;
+      'api::product-oem-category.product-oem-category': ApiProductOemCategoryProductOemCategory;
+      'api::product-ourbrand.product-ourbrand': ApiProductOurbrandProductOurbrand;
+      'api::product-ourbrand-category.product-ourbrand-category': ApiProductOurbrandCategoryProductOurbrandCategory;
+      'api::product-spec.product-spec': ApiProductSpecProductSpec;
+      'api::product-spec-category.product-spec-category': ApiProductSpecCategoryProductSpecCategory;
+      'api::product-spec-table.product-spec-table': ApiProductSpecTableProductSpecTable;
+      'api::products-page.products-page': ApiProductsPageProductsPage;
       'api::recipe.recipe': ApiRecipeRecipe;
+      'api::recipes-page.recipes-page': ApiRecipesPageRecipesPage;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;

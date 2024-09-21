@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_ourbrands",
+  "info": {
+    "singularName": "product-ourbrand",
+    "pluralName": "product-ourbrands",
+    "displayName": "Product Ourbrand"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "AttributeProduct": {
+      "type": "string"
+    },
+    "Fullname": {
+      "type": "string"
+    },
+    "TypeProduct": {
+      "type": "string"
+    },
+    "Thumbnail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Size": {
+      "type": "string"
+    },
+    "Detail": {
+      "type": "blocks"
+    },
+    "Popup": {
+      "type": "boolean"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "ColorFront": {
+      "type": "enumeration",
+      "enum": [
+        "Green-B7D66C",
+        "Pink-F8008A",
+        "Yellow-F6C64D",
+        "Blue-6AD8FE"
+      ]
+    },
+    "product_ourbrand_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-ourbrand-category.product-ourbrand-category",
+      "mappedBy": "product_ourbrands"
+    }
+  }
+}

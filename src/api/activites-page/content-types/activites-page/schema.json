@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "activites_pages",
+  "info": {
+    "singularName": "activites-page",
+    "pluralName": "activites-pages",
+    "displayName": "Activites page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEOTitle": {
+      "type": "string"
+    },
+    "SEODescription": {
+      "type": "blocks"
+    }
+  }
+}

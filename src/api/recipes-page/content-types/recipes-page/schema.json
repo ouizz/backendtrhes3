@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "recipes_pages",
+  "info": {
+    "singularName": "recipes-page",
+    "pluralName": "recipes-pages",
+    "displayName": "Recipes page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEOTitle": {
+      "type": "string"
+    },
+    "SEODescription": {
+      "type": "string"
+    }
+  }
+}

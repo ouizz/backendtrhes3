@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_spec_tables",
+  "info": {
+    "singularName": "product-spec-table",
+    "pluralName": "product-spec-tables",
+    "displayName": "Product Spec Table"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "UnitRow1": {
+      "type": "string"
+    },
+    "UnitRow2": {
+      "type": "string"
+    },
+    "UnitRow3": {
+      "type": "string"
+    },
+    "PackSizeRow1": {
+      "type": "string"
+    },
+    "PackSizeRow2": {
+      "type": "string"
+    },
+    "PackSizeRow3": {
+      "type": "string"
+    },
+    "NWRow1": {
+      "type": "string"
+    },
+    "NWRow2": {
+      "type": "string"
+    },
+    "NWRow3": {
+      "type": "string"
+    },
+    "rowspec": {
+      "type": "string"
+    },
+    "product_specs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-spec.product-spec",
+      "inversedBy": "product_spec_tables"
+    }
+  }
+}
