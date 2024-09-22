@@ -519,24 +519,70 @@ export interface ApiActivitieActivitie extends Struct.CollectionTypeSchema {
     singularName: 'activitie';
     pluralName: 'activities';
     displayName: 'Activitie';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Title: Schema.Attribute.String;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Detail: Schema.Attribute.Blocks;
-    ShortDetail: Schema.Attribute.Blocks;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Detail: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ShortDetail: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     MoreImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
-    >;
-    Highlight: Schema.Attribute.Boolean;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Highlight: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Imagehightlight: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
-    >;
-    homeorder: Schema.Attribute.Enumeration<['no1', 'no2']>;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    homeorder: Schema.Attribute.Enumeration<['no1', 'no2']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -650,10 +696,30 @@ export interface ApiMainIngredientMainIngredient
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Detail: Schema.Attribute.Blocks;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Name: Schema.Attribute.String;
+    Detail: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     recipes: Schema.Attribute.Relation<'manyToMany', 'api::recipe.recipe'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -736,12 +802,23 @@ export interface ApiProductCafeProductCafe extends Struct.CollectionTypeSchema {
     singularName: 'product-cafe';
     pluralName: 'product-cafes';
     displayName: 'Product Cafe';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     product_cafe_categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::product-cafe-category.product-cafe-category'
@@ -799,18 +876,51 @@ export interface ApiProductOemProductOem extends Struct.CollectionTypeSchema {
     singularName: 'product-oem';
     pluralName: 'product-oems';
     displayName: 'Product OEM';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    AttributeProduct: Schema.Attribute.String;
-    FullName: Schema.Attribute.String;
-    TypeProduct: Schema.Attribute.String;
-    Thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    AttributeProduct: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    FullName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    TypeProduct: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Thumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     ColorFront: Schema.Attribute.Enumeration<
       ['Green-B7D66C', 'Pink-F8008A', 'Yellow-F6C64D', 'Blue-6AD8FE']
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     product_oem_categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::product-oem-category.product-oem-category'
@@ -869,22 +979,75 @@ export interface ApiProductOurbrandProductOurbrand
     singularName: 'product-ourbrand';
     pluralName: 'product-ourbrands';
     displayName: 'Product Ourbrand';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    AttributeProduct: Schema.Attribute.String;
-    Fullname: Schema.Attribute.String;
-    TypeProduct: Schema.Attribute.String;
-    Thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Size: Schema.Attribute.String;
-    Detail: Schema.Attribute.Blocks;
-    Popup: Schema.Attribute.Boolean;
-    Title: Schema.Attribute.String;
+    AttributeProduct: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Fullname: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    TypeProduct: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Thumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Size: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Detail: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Popup: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     ColorFront: Schema.Attribute.Enumeration<
       ['Green-B7D66C', 'Pink-F8008A', 'Yellow-F6C64D', 'Blue-6AD8FE']
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     product_ourbrand_categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::product-ourbrand-category.product-ourbrand-category'
@@ -942,15 +1105,41 @@ export interface ApiProductSpecProductSpec extends Struct.CollectionTypeSchema {
     singularName: 'product-spec';
     pluralName: 'product-specs';
     displayName: 'Product Spec';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Title: Schema.Attribute.String;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Popup: Schema.Attribute.Boolean;
-    Kindfruit: Schema.Attribute.String;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Popup: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Kindfruit: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     product_spec_categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::product-spec-category.product-spec-category'
@@ -1013,23 +1202,89 @@ export interface ApiProductSpecTableProductSpecTable
     singularName: 'product-spec-table';
     pluralName: 'product-spec-tables';
     displayName: 'Product Spec Table';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Title: Schema.Attribute.String;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    UnitRow1: Schema.Attribute.String;
-    UnitRow2: Schema.Attribute.String;
-    UnitRow3: Schema.Attribute.String;
-    PackSizeRow1: Schema.Attribute.String;
-    PackSizeRow2: Schema.Attribute.String;
-    PackSizeRow3: Schema.Attribute.String;
-    NWRow1: Schema.Attribute.String;
-    NWRow2: Schema.Attribute.String;
-    NWRow3: Schema.Attribute.String;
-    rowspec: Schema.Attribute.String;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    UnitRow1: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    UnitRow2: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    UnitRow3: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PackSizeRow1: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PackSizeRow2: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PackSizeRow3: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    NWRow1: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    NWRow2: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    NWRow3: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    rowspec: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     product_specs: Schema.Attribute.Relation<
       'manyToMany',
       'api::product-spec.product-spec'
@@ -1083,19 +1338,50 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
     singularName: 'recipe';
     pluralName: 'recipes';
     displayName: 'Recipe';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Title: Schema.Attribute.String;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Thumbnail: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
-    >;
-    Howtodo: Schema.Attribute.Blocks;
-    OtherIngredient: Schema.Attribute.Blocks;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Howtodo: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    OtherIngredient: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     main_ingredients: Schema.Attribute.Relation<
       'manyToMany',
       'api::main-ingredient.main-ingredient'
