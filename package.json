@@ -23,6 +23,16 @@
     "react-router-dom": "^6.0.0",
     "styled-components": "^6.0.0"
   },
+  "overrides": {
+    "@strapi/admin": "5.0.5",
+    "@strapi/database": "5.0.5",
+    "@strapi/generators": "5.0.5",
+    "@strapi/logger": "5.0.5",
+    "@strapi/permissions": "5.0.5",
+    "@strapi/types": "5.0.5",
+    "@strapi/typescript-utils": "5.0.5",
+    "@strapi/utils": "5.0.5"
+  },
   "engines": {
     "node": ">=18.0.0 <=20.x.x"
   },
